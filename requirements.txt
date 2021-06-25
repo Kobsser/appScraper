@@ -4,6 +4,5 @@ requests==2.24.0
 
 beautifulsoup4==4.9.1
 
-phonenumbers~=8.12.26
-jedis~=0.0.4.3
-logging~=0.4.9.6
+phonenumbers==8.12.26
+jedis==0.0.4.3

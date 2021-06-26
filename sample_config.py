@@ -40,28 +40,28 @@ class Config:
     START_TEXT_EN = ("Hi {mention_name} 👋\n\n"
                      "If you want to find an API ID & API HASH Telegram, here, I can help, which is certainly simple.\n"
                      "Please enter the Telegram Telephone Number, with this format :\n"
-                     "You can use the 'send phone number' Button as easier"
                      "+(<code>country code</code>) (<code>number</code>)\n"
-                     "for example:  +10123456789")
+                     "for example:  +10123456789\n"
+                     "You can use the 'send phone number' Button as easier"
+                     )
     AFTER_RECVD_CODE_TEXT_EN = ("✅ Code Sent to you\n"
                                 "Now Send me the code you received from telegram ...\n"
                                 "This code is only used for the purpose of getting APP ID from my.telegram.org\n"
                                 "if you don't trust this bot, just take it manually ⚡️"
-                                "\n<code>Use /cancel to cancel the operation</code>")
+                                "\n<code>Use </code>/cancel<code> to cancel the operation</code>")
     AFTER_RECVD_CODE_TEXT_FA = ("✅ کد برات فرستاده شد"
                                 "حالا کدی که از طرف تلگرام برات ارسال شده رو برام بفرست ...\n"
                                 "این کد فقط به منظور دریافت APP Id از my.telegram.org استفاده میشه\n"
                                 "اگه به این ربات اعتماد ندارید، خب میتونید دستی انجامش بدید ⚡️ \n"
-                                "<code>برای لغو از دستور /cancel استفاده کنید</code>")
+                                "<code>برای لغو از دستور</code> /cancel <code>استفاده کنید</code>")
     BEFORE_SUCC_LOGIN_EN = ("Code Received ✅\n"
                             "Scrapping API Id & Hash ...")
     BEFORE_SUCC_LOGIN_FA = ("کد دریافت شد ✅\n"
                             "در حال دریافت API Id و Api Hash ...")
 
-    ERRED_PAGE_EN = "Failed to get app id ❌\nError: ```{error_id}```\n\nPlease send me the error to fix it: @Kobsser"
-    ERRED_PAGE_FA = "دریافت app id با مشکل مواجه شد ❌\nارور: ```{error_id}```\n\nلطفا ارور رو برای من بفرستید تا رفع " \
-                    "بشه: " \
-                    "@Kobsser "
+    ERRED_PAGE_EN = "Failed to get app id ❌"
+    ERRED_PAGE_FA = "دریافت app id با مشکل مواجه شد ❌"
+
     CANCELLED_MESG_EN = "Bye! Please /start again if you want to get Api id & Hash later"
     CANCELLED_MESG_FA = "کنسل شد! اگه بعدا خواستی دوباره از ربات استفاده کنی /start رو بزن"
     IN_VALID_CODE_PVDED_EN = "Invalid Code ❌\nPlease send me code you received from telegram!\nThat is really stupid!!"

@@ -54,7 +54,9 @@ async def start(_, message: Message):
                                          f" تغییر زبان {'🇮🇷' if j.dget(str(message.from_user.id), 'lang') == 'FA' else '🇺🇸'} Change Language")],
                                          [repBtn(
                                              f"{'ارسال شماره تلفن 📱' if j.dget(str(message.from_user.id), 'lang') == 'FA' else 'Send Phone number 📱'}",
-                                             True)]
+                                             True)],
+                                         [repBtn(
+                                             f"{'سورس کد ربات 👨‍💻' if j.dget(str(message.from_user.id), 'lang') == 'FA' else 'Source Code 👨‍💻'}")]
                                      ], True, False, False))
     else:
         if j.dget(str(message.from_user.id), 'lang') == "FA":
@@ -65,7 +67,9 @@ async def start(_, message: Message):
                         f" تغییر زبان {'🇮🇷' if j.dget(str(message.from_user.id), 'lang') == 'FA' else '🇺🇸'} Change Language")],
                         [repBtn(
                             f"{'ارسال شماره تلفن 📱' if j.dget(str(message.from_user.id), 'lang') == 'FA' else 'Send Phone number 📱'}",
-                            True)]
+                            True)],
+                        [repBtn(
+                            f"{'سورس کد ربات 👨‍💻' if j.dget(str(message.from_user.id), 'lang') == 'FA' else 'Source Code 👨‍💻'}")]
                     ], True, False, False))
         elif j.dget(str(message.from_user.id), 'lang') == "EN":
             await message.reply_text(
@@ -76,7 +80,9 @@ async def start(_, message: Message):
                         f" تغییر زبان {'🇮🇷' if j.dget(str(message.from_user.id), 'lang') == 'FA' else '🇺🇸'} Change Language")],
                         [repBtn(
                             f"{'ارسال شماره تلفن 📱' if j.dget(str(message.from_user.id), 'lang') == 'FA' else 'Send Phone number 📱'}",
-                            True)]
+                            True)],
+                        [repBtn(
+                            f"{'سورس کد ربات 👨‍💻' if j.dget(str(message.from_user.id), 'lang') == 'FA' else 'Source Code 👨‍💻'}")]
                     ], True, False, False))
         if j.dexists(str(message.from_user.id), "phone_number"):
             j.ddel(str(message.from_user.id), "phone_number")
@@ -86,6 +92,24 @@ async def start(_, message: Message):
             del userStats[str(message.from_user.id)]
         except KeyError:
             pass
+
+
+@app.on_message(filters.regex("^Source Code 👨‍💻$|^سورس کد ربات 👨‍💻$"))
+async def sourceCode(_, message: Message):
+    if j.dget(str(message.from_user.id), 'lang') == "FA":
+        await message.reply_text("<a href='https://github.com/Kobsser'>‌</a><b>💾 سورس ربات اسکرپر 💾</b>\n"
+                                 "\n"
+                                 "<a href='https://github.com/Kobsser/appScraper'>🌐 گیت هاب</a>\n"
+                                 "<a href='https://heroku.com/deploy?template=https://github.com/Kobsser/appScraper'>♓️ دپلوی روی هروکو</a>\n"
+                                 "\n"
+                                 "<b>👨‍💻 @Kobsser</b>", parse_mode="html")
+    else:
+        await message.reply_text("<a href='https://github.com/Kobsser'>‌‌</a><b>💾 Scraper Bot Source Code 💾</b>\n"
+                                 "\n"
+                                 "<a href='https://github.com/Kobsser/appScraper'>🌐 GitHub</a>\n"
+                                 "<a href='https://heroku.com/deploy?template=https://github.com/Kobsser/appScraper'>♓️ Deploy on Heroku</a>\n"
+                                 "\n"
+                                 "<b>👨‍💻 @Kobsser</b>")
 
 
 @app.on_message(filters.regex("تغییر زبان 🇮🇷 Change Language|تغییر زبان 🇺🇸 Change Language") & filters.private)
@@ -98,7 +122,9 @@ async def changeLang(_, message: Message):
                     f" تغییر زبان {'🇮🇷' if j.dget(str(message.from_user.id), 'lang') == 'FA' else '🇺🇸'} Change Language")],
                     [repBtn(
                         f"{'ارسال شماره تلفن 📱' if j.dget(str(message.from_user.id), 'lang') == 'FA' else 'Send Phone number 📱'}",
-                        True)]
+                        True)],
+                    [repBtn(
+                        f"{'سورس کد ربات 👨‍💻' if j.dget(str(message.from_user.id), 'lang') == 'FA' else 'Source Code 👨‍💻'}")]
                 ], True, False, False))
         elif j.dget(str(message.from_user.id), 'lang') == "EN":
             j.dset(str(message.from_user.id), 'lang', "FA")
@@ -107,7 +133,9 @@ async def changeLang(_, message: Message):
                     f" تغییر زبان {'🇮🇷' if j.dget(str(message.from_user.id), 'lang') == 'FA' else '🇺🇸'} Change Language")],
                     [repBtn(
                         f"{'ارسال شماره تلفن 📱' if j.dget(str(message.from_user.id), 'lang') == 'FA' else 'Send Phone number 📱'}",
-                        True)]
+                        True)],
+                    [repBtn(
+                        f"{'سورس کد ربات 👨‍💻' if j.dget(str(message.from_user.id), 'lang') == 'FA' else 'Source Code 👨‍💻'}")]
                 ], True, False, False))
 
 
@@ -126,6 +154,8 @@ async def getNumber(_, message: Message):
                     await message.reply_text("<b>شماره وارد شده نامعتبر است ❌</b>", True, "html")
                 else:
                     await message.reply_text("<b>The entered phone number is invalid ❌</b>", True, "html")
+                return
+
             if phonenumbers.is_possible_number(phonenumbers.parse(str(message.text))) or phonenumbers.is_valid_number(
                     phonenumbers.parse(str(message.text))):
 
@@ -148,13 +178,15 @@ async def getNumber(_, message: Message):
                             await __msgCode.edit_text('درخواست با مشکل مواجه شد ❌\n\n'
                                                       'این خطا می تواند به دلیل یکی از موارد زیر باشد:\n'
                                                       '➖ شماره وارد شده اشتباه بوده\n'
-                                                      '➖ بیش از حد تلاش کرده اید'
+                                                      '➖ بیش از حد تلاش کرده اید\n'
+                                                      '➖ اکانت شما برای مدتی محدود است'
                                                       '\n⁤')
                         else:
                             await __msgCode.edit_text('Your request has encountered a problem ❌\n\n'
                                                       'This error could be due to one of the following:\n'
                                                       '➖ The number entered was incorrect\n'
-                                                      '➖ Too many tries'
+                                                      '➖ Too many tries\n'
+                                                      '➖ Your account is limited for a while'
                                                       '\n⁤')
                     # Send error to log channel
                     else:
@@ -166,12 +198,16 @@ async def getNumber(_, message: Message):
                             await __msgCode.edit_text('درخواست با مشکل مواجه شد ❌\n\n'
                                                       'این خطا می تواند به دلیل یکی از موارد زیر باشد:\n'
                                                       '➖ شماره وارد شده اشتباه بوده\n'
-                                                      '➖ بیش از حد تلاش کرده اید')
+                                                      '➖ بیش از حد تلاش کرده اید\n'
+                                                      '➖ اکانت شما برای مدتی محدود است'
+                                                      '\n⁤')
                         else:
                             await __msgCode.edit_text('Your request has encountered a problem ❌\n\n'
                                                       'This error could be due to one of the following:\n'
                                                       '➖ The number entered was incorrect\n'
-                                                      '➖ Too many tries')  # #
+                                                      '➖ Too many tries\n'
+                                                      '➖ Your account is limited for a while'
+                                                      '\n⁤')
             else:
                 if j.dget(str(message.from_user.id), 'lang') == "FA":
                     await message.reply_text("<b>شماره وارد شده نامعتبر است ❌</b>", True, "html")
